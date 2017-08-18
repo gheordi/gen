@@ -1,0 +1,96 @@
+[17/Aug/2017 17:02:17] ERROR [django.request:284] Internal Server Error: /vote/index.html
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "/usr/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 665, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/gheordi/gen/vote/voteviews.py", line 33, in <module>
+    from sklearn.cluster import MiniBatchKMeans
+ImportError: No module named 'sklearn'
+[17/Aug/2017 17:05:54] ERROR [django.request:284] Internal Server Error: /vote/index.html
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/cursors.py", line 226, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorvalue
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/cursors.py", line 217, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/cursors.py", line 378, in _query
+    rowcount = self._do_query(q)
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/cursors.py", line 341, in _do_query
+    db.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'vote_voteapplication.creation' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/gheordi/gen/vote/voteviews.py", line 57, in index
+    app=app[0]
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 297, in __getitem__
+    return list(qs)[0]
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 258, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1074, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 52, in __iter__
+    results = compiler.execute_sql()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 848, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/cursors.py", line 226, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorvalue
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/cursors.py", line 217, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/cursors.py", line 378, in _query
+    rowcount = self._do_query(q)
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/cursors.py", line 341, in _do_query
+    db.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'vote_voteapplication.creation' in 'field list'")
+[17/Aug/2017 17:10:33] ERROR [django.request:284] Internal Server Error: /vote/index.html
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/gheordi/gen/vote/voteviews.py", line 58, in index
+    cat = VoteCategory.objects.filter(catType=-1,application=app,languageCode=request.LANGUAGE_CODE)
+AttributeError: 'WSGIRequest' object has no attribute 'LANGUAGE_CODE'

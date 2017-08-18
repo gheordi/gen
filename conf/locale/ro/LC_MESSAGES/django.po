@@ -1,0 +1,282 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-14 16:27+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: codining/voteviews.py:213
+msgid "authentication error"
+msgstr "eroare de autentificare"
+
+#: codining/templates/index.html:9 codining/templates/politics.html:9
+msgid "Design your Community"
+msgstr "Creati propria comunitate"
+
+#: codining/templates/index.html:132 codining/templates/politics.html:132
+msgid "Fill Profile"
+msgstr ""
+
+#: codining/templates/index.html:133 codining/templates/politics.html:133
+msgid "your Votes"
+msgstr "votul dvs"
+
+#: codining/templates/index.html:134 codining/templates/politics.html:134
+msgid "Notifications"
+msgstr "Notificari"
+
+#: codining/templates/index.html:136 codining/templates/politics.html:136
+msgid "Your possible groups"
+msgstr "Grupurile dvs posibile"
+
+#: codining/templates/index.html:215 codining/templates/politics.html:215
+msgid "Add argument"
+msgstr "Adauga argument"
+
+#: codining/templates/index.html:219 codining/templates/politics.html:219
+msgid "Please Wait..."
+msgstr "Asteptati..."
+
+#: codining/templates/index.html:220 codining/templates/politics.html:220
+msgid "Request was sent to the server."
+msgstr "Cererea a fost trimisa catre server"
+
+#: codining/templates/index.html:224 codining/templates/politics.html:224
+msgid "Add Solution"
+msgstr "Adauga Solutie"
+
+#: codining/templates/index.html:225 codining/templates/politics.html:225
+msgid "Title:"
+msgstr "Titlu:"
+
+#: codining/templates/index.html:226 codining/templates/politics.html:226
+msgid "Description:"
+msgstr "Descriere:"
+
+#: codining/templates/index.html:227 codining/templates/politics.html:227
+msgid "Photo Url:"
+msgstr "Url imagine:"
+
+#: codining/templates/index.html:227 codining/templates/politics.html:227
+msgid ""
+"Look for your desired image on internet, and then right-click on it, then "
+"select copy image address or location and paste it here"
+msgstr ""
+
+#: codining/templates/index.html:230 codining/templates/politics.html:230
+msgid "Proposition"
+msgstr "Propunere"
+
+#: codining/templates/index.html:237 codining/templates/politics.html:237
+msgid "Pro"
+msgstr "Pro"
+
+#: codining/templates/index.html:241 codining/templates/politics.html:241
+msgid "Against"
+msgstr "Impotriva"
+
+#: codining/templates/index.html:249 codining/templates/index.html.py:270
+#: codining/templates/index.html:293 codining/templates/politics.html:249
+#: codining/templates/politics.html:270 codining/templates/politics.html:293
+msgid "Your Vote:"
+msgstr "Votul dvs:"
+
+#: codining/templates/index.html:251 codining/templates/politics.html:251
+msgid "Forbide"
+msgstr "Interzic"
+
+#: codining/templates/index.html:252 codining/templates/politics.html:252
+msgid "Tolerate"
+msgstr "Tolerez"
+
+#: codining/templates/index.html:253 codining/templates/politics.html:253
+msgid "Agree"
+msgstr "De acord"
+
+#: codining/templates/index.html:254 codining/templates/politics.html:254
+msgid "Mandatory for me"
+msgstr "Obligatoriu pentru mine"
+
+#: codining/templates/index.html:255 codining/templates/politics.html:255
+msgid "Mandatory for everyone"
+msgstr "Obligatoriu pentru toti"
+
+#: codining/templates/index.html:265 codining/templates/politics.html:265
+msgid "Product"
+msgstr "Produs"
+
+#: codining/templates/index.html:272 codining/templates/politics.html:272
+msgid "maybe"
+msgstr "poate"
+
+#: codining/templates/index.html:273 codining/templates/politics.html:273
+msgid "I'd try"
+msgstr "As incerca"
+
+#: codining/templates/index.html:274 codining/templates/politics.html:274
+msgid "rarely"
+msgstr "rar"
+
+#: codining/templates/index.html:275 codining/templates/politics.html:275
+msgid "often"
+msgstr "des"
+
+#: codining/templates/index.html:276 codining/templates/politics.html:276
+msgid "daily"
+msgstr "zilnic"
+
+#: codining/templates/index.html:277 codining/templates/politics.html:277
+msgid "I'd produce"
+msgstr "As produce"
+
+#: codining/templates/index.html:288 codining/templates/politics.html:288
+msgid "Users"
+msgstr "Useri"
+
+#: codining/templates/index.html:295 codining/templates/politics.html:295
+msgid "veto"
+msgstr "veto"
+
+#: codining/templates/index.html:296 codining/templates/politics.html:296
+msgid "rather not"
+msgstr "nu prea"
+
+#: codining/templates/index.html:297 codining/templates/politics.html:297
+msgid "like"
+msgstr "imi place"
+
+#: codining/templates/index.html:298 codining/templates/politics.html:298
+msgid "mandatory"
+msgstr "obligatoriu"
+
+#: codining/templates/index.html:306 codining/templates/index.html.py:324
+#: codining/templates/index.html:333 codining/templates/politics.html:306
+#: codining/templates/politics.html:324 codining/templates/politics.html:333
+msgid "Login"
+msgstr ""
+
+#: codining/templates/index.html:307 codining/templates/index.html.py:322
+#: codining/templates/politics.html:307 codining/templates/politics.html:322
+msgid "Email"
+msgstr ""
+
+#: codining/templates/index.html:308 codining/templates/index.html.py:323
+#: codining/templates/politics.html:308 codining/templates/politics.html:323
+msgid "Password"
+msgstr "Parola"
+
+#: codining/templates/index.html:309 codining/templates/politics.html:309
+msgid "Skip Intro"
+msgstr ""
+
+#: codining/templates/index.html:310 codining/templates/politics.html:310
+msgid "Store Cookies"
+msgstr ""
+
+#: codining/templates/index.html:311 codining/templates/index.html.py:318
+#: codining/templates/politics.html:311 codining/templates/politics.html:318
+msgid "Register"
+msgstr ""
+
+#: codining/templates/index.html:312 codining/templates/index.html.py:325
+#: codining/templates/politics.html:312 codining/templates/politics.html:325
+msgid "Forgot password"
+msgstr "Am uitat parola"
+
+#: codining/templates/index.html:314 codining/templates/politics.html:314
+msgid "invalid username/password"
+msgstr "user/parola invalida"
+
+#: codining/templates/index.html:319 codining/templates/index.html.py:340
+#: codining/templates/politics.html:319 codining/templates/politics.html:340
+msgid "Name"
+msgstr "Nume"
+
+#: codining/templates/index.html:320 codining/templates/politics.html:320
+#, fuzzy
+msgid "Username"
+msgstr "Useri"
+
+#: codining/templates/index.html:321 codining/templates/politics.html:321
+msgid "Photo Url"
+msgstr "Url Imagine"
+
+#: codining/templates/index.html:327 codining/templates/politics.html:327
+msgid "User succesfully registered."
+msgstr "User inregistrat cu succes"
+
+#: codining/templates/index.html:331 codining/templates/politics.html:331
+msgid "Recover Password"
+msgstr "Recupereaza Parola"
+
+#: codining/templates/index.html:332 codining/templates/politics.html:332
+msgid "Input your email address"
+msgstr "Introduceti adresa de email"
+
+#: codining/templates/index.html:335 codining/templates/politics.html:335
+msgid "Email was sent. Please check and log in"
+msgstr "Email trimis. Va rugam verificati si log in"
+
+#: codining/templates/index.html:339 codining/templates/politics.html:339
+msgid "Add Topic"
+msgstr "Adauga Categorie"
+
+#: codining/templates/index.html:348 codining/templates/politics.html:348
+msgid "Contact us"
+msgstr ""
+
+#: codining/templates/index.html:349 codining/templates/politics.html:349
+#, fuzzy
+msgid "your email"
+msgstr "votul dvs"
+
+#: codining/templates/index.html:350 codining/templates/politics.html:350
+msgid "your subject"
+msgstr ""
+
+#: codining/templates/index.html:351 codining/templates/politics.html:351
+msgid "message"
+msgstr ""
+
+#: codining/templates/index.html:361 codining/templates/politics.html:361
+msgid "Lets create our community !"
+msgstr ""
+
+#: codining/templates/index.html:364
+msgid ""
+"You can work anywhere you’d like. Why do you pay so much for housing, lose "
+"your time in traffic jam and your health due to pollution ? For friends, "
+"cultural life ? What would you say to live in a place like a university "
+"campus, surrounded by amazing people like you, who share your values, your "
+"passions, who are eager to put resources in common with you."
+msgstr ""
+
+#: codining/templates/politics.html:364
+msgid ""
+"Vote different social projects and join the others like you in a political "
+"group"
+msgstr "Votati pentru diverse proiecte sociale. Astfel va veti regasi intr-un grup politic cu cei cu opinii similare"
+
+#: mysite/settings.py:137
+msgid "English"
+msgstr ""
+
+#: mysite/settings.py:142
+msgid "Polish"
+msgstr ""
+
+#: mysite/urls.py:63
+msgid "^vote/index"
+msgstr ""
