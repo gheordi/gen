@@ -71,7 +71,11 @@ def index(request):
     tmp=ab
     if(ind!=-1):
         tmp=ab[:ind]
-    setup=VoteApplicationABSetup.objects.filter(application=app,abPath=tmp)[0]
+    setup=VoteApplicationABSetup.objects.filter(application=app,abPath=tmp)
+    if(setup.count()==0):
+        setup=VoteApplicationABSetup.objects.filter(application=app)[0]
+    else:
+        setup=setup[0]
     res={'right_now':datetime.utcnow(),'lang':request.LANGUAGE_CODE}
     res['ROOTID']=rootid
     res['uppath']=uppath
