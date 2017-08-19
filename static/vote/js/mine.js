@@ -1538,7 +1538,7 @@ function loadProposition(isProposition,el,id,title,descr,importance,photo,strong
     */
 
 
-    txt='<div  id="p'+id+'" catType="'+catType+'" class="col-xs-12 col-sm-6  col-md-4 col-lg-3 article proposition  col-height" ><div class="inside" style="height:80%;overflow:hidden;">';
+    txt='<div  id="p'+id+'" catType="'+catType+'" class="col-xs-12 col-sm-6  col-md-4 col-lg-3 article proposition  col-height" ><div class="inside" style="height:250px;overflow:hidden;">';
     txt+='<div class="double"><div style="float:left;width:100%;" class="double"><!--<img class="expandProposition" src="/static/vote/images/expand.png"><img class="collapseProposition" src="/static/vote/images/collapse.png">--><p class="propositionTitle">';
     //if the status of proposition is DRAFT, mark it
     if(status==0){
