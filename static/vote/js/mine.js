@@ -125,6 +125,8 @@ function init(){
     ROOT_CATEGORY_ID=$('#rootid').val();
     AB_PATH = $('#abpath').val();
     initDictionary();
+    setVoteLabel();
+
     SAVE_LABEL=dictionary[LANGUAGE]['Save'];
     if(USERKEY!=null){
         logoutEl.show();
@@ -1592,6 +1594,25 @@ function loadProposition(isProposition,el,id,title,descr,importance,photo,strong
    // $("input[name="+uniq+"][value=" + vote + "]").prop('checked', true);
 
     return newProp;
+}
+
+function setVoteLabel(){
+
+    if(APPID==1){
+        $('#vote1').text(dictionary[LANGUAGE]['Forbid']);
+        $('#vote2').text(dictionary[LANGUAGE]['Tolerate']);
+        $('#vote3').text(dictionary[LANGUAGE]['Agree']);
+        $('#vote4').text(dictionary[LANGUAGE]['Mandatory for Me']);
+        $('#vote5').text(dictionary[LANGUAGE]['Mandatory for Everyone']);
+
+    }
+    else{
+        $('#vote1').text(dictionary[LANGUAGE]['STRONG_AGAINST']);
+        $('#vote2').text(dictionary[LANGUAGE]['AGAINST']);
+        $('#vote3').text(dictionary[LANGUAGE]['NEUTRAL']);
+        $('#vote4').text(dictionary[LANGUAGE]['AGREE']);
+        $('#vote5').text(dictionary[LANGUAGE]['MANDATORY']);
+    }
 }
 
 function getVoteLabel(catType,vote){
