@@ -2,6 +2,7 @@ var arrowPressed=0;
 var oldCat=null;
 var current;
 var currrentCat;
+var propositionIdStack=new Array();
 var isArgument;
 var genid=1;
 var color;
@@ -52,7 +53,6 @@ var categorydialogEl;
 var propositionimgEl;
 var photoUrlEl;
 var solutiondialogEl;
-var propositiondialogEl;
 var propositiondialogEl;
 var addFirstCategoryEl;
 var solutionTitleEl;
@@ -108,7 +108,7 @@ var iframe_containerEl;
 var banner2El;
 var bannertextEl;
 var messageboxEl;
-createAppIconEl;
+var createAppIconEl;
 
 
 
@@ -154,12 +154,14 @@ function init(){
 
         if(AB_PATH.indexOf("tdr")!=-1){
             $('#nextProp').click(function(){
+                propositionIdStack.push(propId);
                 expandProposition("solutiondialog","nextprop");
             });
             $(document).swipe( {
 						//Generic swipe handler for all directions
 						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 							if(direction=='left'){
+                                propositionIdStack.push(propId);
 							   expandProposition("solutiondialog","nextprop");
 							}else if(direction=='down'){
 							    expandProposition("solutiondialog","nextprop");
@@ -202,6 +204,14 @@ function init(){
 
         window.open("imagesearch", '_blank', 'toolbar=0,location=0,menubar=0');
 
+    });
+
+    $("#precProp").click(function(){
+        tmp = propositionIdStack.pop();
+        if(tmp==null)
+            return;
+        propId = tmp;
+        expandProposition("solutiondialog",null);
     });
 
 //to prevent multiple binding
@@ -333,12 +343,10 @@ $('#logo').click(function (){
                                    }
     });
 
-
+    initPropositionDialog();
     if(AB_PATH.indexOf('tdr')==-1){
-    $("#savePropositionButton").hide();
-    $("#publishPropositionButton").hide();
-    $("#addPropositionButton").hide();
-    $("#votePropositionButton").hide();
+        $("#addPropositionButton").hide();
+        $("#votePropositionButton").hide();
 
     solutiondialogEl.dialog({width:dialogWidth,autoOpen:false,modal:true,show:"blind",hide:"blind",
                                    buttons:{
@@ -355,57 +363,9 @@ $('#logo').click(function (){
                                    }
     });
 
-    propositiondialogEl.dialog({autoOpen:false,modal:true,show:"blind",hide:"blind",
-                                   buttons:{
-                                    'Save':function(){
-                                        $(this).toggle();
-                                        if(isAlternative)
-                                            addAlternative($(this));
-                                        else
-                                            saveProposition($(this),0);//0-status of draft proposition
-                                        $(this).toggle();
-                                        propositionimgEl.attr("src","");
-                                        descriptiontextEl.val("");
-                                        propTitleEl.val("");
-                                        propIdEl.val("");
-
-                                        },
-                                    'Publish':function(){
-                                        $(this).toggle();
-                                        if(isAlternative)
-                                            addAlternative($(this));
-                                        else
-                                            saveProposition($(this),1);//1-status of published proposition
-                                        $(this).toggle();
-                                        propositionimgEl.attr("src","");
-                                        descriptiontextEl.val("");
-                                        propTitleEl.val("");
-                                        propIdEl.val("");
-
-                                        photoUrlEl.val("");
-
-                                        },
-                                    'Cancel':function(){
-                                        propositionimgEl.attr("src","");
-                                        descriptiontextEl.val("");
-                                        propTitleEl.val("");
-                                        photoUrlEl.val("");
-                                        $(this).dialog('close');
-
-                                    }
-
-
-                                   }
-    });
 
 
     }else{
-        $("#savePropositionButton").click(function (){
-                saveProposition(null,0);//1-status of published proposition
-        });
-    $("#publishPropositionButton").click(function (){
-            saveProposition($(this),1);//1-status of published proposition
-        });
     $("#addPropositionButton").click(function (){
                                         propositionimgEl.attr("src","");
                                         descriptiontextEl.val("");
@@ -413,8 +373,8 @@ $('#logo').click(function (){
                                         propIdEl.val("");
 
                                         photoUrlEl.val("");
-            solutiondialogEl.hide();
-            propositiondialogEl.show();
+//            solutiondialogEl.hide();
+            propositiondialogEl.dialog("open");
         });
     $("#votePropositionButton").click(function(){
         vote();
@@ -1054,10 +1014,9 @@ function expandDraft(data){
 function expandProposition(dialogType,operation){
 //if(!expandedSet.has(id)){
 if(true){
-
     call=SERVER+'getProposition?appid='+APPID+'&userkey='+USERKEY+'&propositionid='+propId+getServerExtraParameters()+"&operation="+operation;
     $.getJSON(call, function (data) {
-        if(data['status']==0){
+        if(data['status']==0 && AB_PATH.indexOf('tdr')==-1){
             expandDraft(data);
             return;
         }
@@ -1073,7 +1032,11 @@ if(true){
         for(i=0;i<cons.length;i++){
             loadArgument(cons[i]['id'],false,cons[i]['description'],cons[i]['vote']);
         }
-        solutionTitleEl.text(data['title']);
+        if(data['status']==0)
+            solutionTitleEl.text(dictionary[LANGUAGE]['DRAFT']+' '+ data['title']);
+        else
+            solutionTitleEl.text(data['title']);
+
         solutionDescriptionEl.text(data['description']);
         solutionImgEl.attr('src',data['photo']);
         //currentPropositionId=data['id'];
@@ -1385,9 +1348,7 @@ function login(el){
             el.find('.password:first').val("");
             loginErrorMessageEl.show();
         }else{
-            $('.categories').empty();
-            expandedSet.clear();
-            expand(rootEl);
+
 
             loginErrorMessageEl.hide();
             USERKEY = data['userkey'];
@@ -1406,7 +1367,16 @@ function login(el){
             }
             createAppIconEl.hide();
 
-            $(document).scrollTop(0);
+            if(AB_PATH.indexOf("tdr")==-1){
+                $('.categories').empty();
+                expandedSet.clear();
+                expand(rootEl);
+
+                $(document).scrollTop(0);
+            }else{
+                expandProposition("solutiondialog",null);
+
+            }
             logindialogEl.dialog('close');
 
 
@@ -1492,11 +1462,14 @@ function saveProposition(diag,status){
     $.getJSON(call, function (data) {
         if(data['code']=='authentication error'){
             authenticate();
-            return;
+            return false;
         }
         if(AB_PATH.indexOf("tdr")!=-1){
             showMessageBox(dictionary[LANGUAGE]['Your solution was saved']);
-            return;
+            propId=parseInt(data['id']);
+            expandProposition("solutiondialog",null);
+
+            return false;
 
         }
         tmp=null;
@@ -1934,6 +1907,8 @@ function initDictionary(){
             dictionary[LANGUAGE]['newappCongrats']='Congratulations ! You have just created a new project. Now, you can share it:'
             dictionary[LANGUAGE]['setupsaved']='The settings were saved. Press Ok to reload the page'
             dictionary[LANGUAGE]['duplicateABPATH']="There is already an A/B path with this value";
+            dictionary[LANGUAGE]['DRAFT']='DRAFT:';
+
         }
         if(LANGUAGE=='fr'){
             dictionary[LANGUAGE]['Save']='Sauve';
@@ -1970,6 +1945,7 @@ function initDictionary(){
             dictionary[LANGUAGE]['NEUTRAL']='Neutre';
             dictionary[LANGUAGE]['AGREE']="D'accord";
             dictionary[LANGUAGE]['MANDATORY']='Obligatoire';
+            dictionary[LANGUAGE]['DRAFT']='Brouillon:';
 
         }
         if(LANGUAGE=='ro'){
@@ -2008,6 +1984,7 @@ function initDictionary(){
             dictionary[LANGUAGE]['NEUTRAL']='Neutru';
             dictionary[LANGUAGE]['AGREE']='Agreez';
             dictionary[LANGUAGE]['MANDATORY']='Obligatoriu';
+            dictionary[LANGUAGE]['DRAFT']='Nepublicat:';
 
         }
     }
@@ -2307,5 +2284,51 @@ createAppIconEl=$('#createAppIcon');
 proargumentdialogEl=$("#proargumentdialog");
 categorydialogEl=$("#categorydialog");
 
+
+}
+
+function initPropositionDialog(){
+    propositiondialogEl.dialog({autoOpen:false,modal:true,show:"blind",hide:"blind",
+                                   buttons:{
+                                    'Save':function(){
+                                        $(this).toggle();
+                                        if(isAlternative)
+                                            addAlternative($(this));
+                                        else
+                                            saveProposition($(this),0);//0-status of draft proposition
+                                        $(this).toggle();
+                                        resetPropositionDialog();
+                                        $(this).dialog('close');
+
+                                        },
+                                    'Publish':function(){
+                                        $(this).toggle();
+                                        if(isAlternative)
+                                            addAlternative($(this));
+                                        else
+                                            saveProposition($(this),1);//1-status of published proposition
+                                        $(this).toggle();
+                                        resetPropositionDialog();
+                                        $(this).dialog('close');
+
+                                        },
+                                    'Cancel':function(){
+                                        resetPropositionDialog();
+                                        $(this).dialog('close');
+
+                                    }
+
+
+                                   }
+    });
+
+}
+
+function resetPropositionDialog(){
+                                        propIdEl.val("");
+                                        propositionimgEl.attr("src","");
+                                        descriptiontextEl.val("");
+                                        propTitleEl.val("");
+                                        photoUrlEl.val("");
 
 }
