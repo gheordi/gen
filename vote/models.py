@@ -7,7 +7,7 @@ class VoteApplication(models.Model):
     name=models.CharField(max_length=50)
     showUser=models.IntegerField(default=0)
     url=models.CharField(max_length=50)
-#    creation=models.DateTimeField(null=True, blank=True)
+    creation=models.DateTimeField(null=True, blank=True)
 
 
 
