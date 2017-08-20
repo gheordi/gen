@@ -547,7 +547,7 @@ def changeDummyUser(request,user):
     for obj in VoteArgumentVote.objects.filter(user=dummyUser):
         obj.user=user
         obj.save()
-    for obj in ActionLog.objects.filter(user=dummyUser):
+    for obj in VoteActionLog.objects.filter(user=dummyUser):
         obj.creator=user
         obj.save()
 
@@ -705,7 +705,7 @@ def logAction(label,request,user):
     isTest=request.GET.get('test')
     if(ip=='82.235.22.143' and isTest is None):
         return
-    log = ActionLog()
+    log = VoteActionLog()
     log.action=label
     if(user!=None):
         log.user=user
